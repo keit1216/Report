@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Report System</title>
+<h1>請上傳檔案(.csv)</h1>
+<h2>檔名規則:</h2>
+<h3>震動:A10~A50、B10~B60</h3>
+<h3>噪音:LA1~LD1</h3>
+<h3>溫度:TA1~TD1</h3>
+<h3>電流:EA1~ED1</h3>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/upload" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input type="file" name="file" multiple="true" autocomplete="off" required>
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="上傳">
+	</p>
+</form>
+<input type ="button" onclick="javascript:location.href='http://35.201.217.27:3812/dropdown'" value="列印報表"></input>
+
+<!--
+<iframe src = "./static/test2.pdf" width = "100%" height = "700px"></iframe>
+-->
+</html>
